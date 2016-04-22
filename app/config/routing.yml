@@ -1,0 +1,17 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+users:
+    type:     rest
+    resource: AppBundle\Controller\UsersController
+
+test:
+    path: /about
+    defaults: { _controller: AppBundle:Users:getDemos }
+
+fos_oauth_server_token:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
+
+fos_oauth_server_authorize:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
