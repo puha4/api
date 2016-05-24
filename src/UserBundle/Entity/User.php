@@ -10,14 +10,22 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="oc_customer")
  * @ORM\Entity
+ * @ORM\AttributeOverrides({
+ *     @ORM\AttributeOverride(name="id",
+ *          column=@ORM\Column(
+ *              name     = "customer_id",
+ *              type     = "integer"
+ *          )
+ *      )
+ * })
  */
 class User extends BaseUser
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\Id()
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
@@ -554,6 +562,16 @@ class User extends BaseUser
     {
         return $this->dateAdded;
     }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
 //
 //    /**
 //     * Get customerId
