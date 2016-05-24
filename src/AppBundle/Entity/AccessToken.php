@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zac
- * Date: 4/12/16
- * Time: 7:28 PM
- */
 
 namespace AppBundle\Entity;
 
@@ -30,7 +24,7 @@ class AccessToken extends BaseAccessToken
     protected $client;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
      */
     protected $user;
 }

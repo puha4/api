@@ -1,0 +1,77 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * OcInformationDescription
+ *
+ * @ORM\Table(name="oc_information_description")
+ * @ORM\Entity
+ */
+class OcInformationDescription
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=64, nullable=false)
+     */
+    private $title = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", length=65535, nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_description", type="string", length=255, nullable=false)
+     */
+    private $metaDescription;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_keyword", type="string", length=255, nullable=false)
+     */
+    private $metaKeyword;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="seo_title", type="string", length=255, nullable=false)
+     */
+    private $seoTitle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="seo_h1", type="string", length=255, nullable=false)
+     */
+    private $seoH1;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="information_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $informationId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="language_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $languageId;
+
+
+}
+

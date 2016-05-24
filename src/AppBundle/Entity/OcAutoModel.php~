@@ -1,0 +1,47 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * OcAutoModel
+ *
+ * @ORM\Table(name="oc_auto_model", indexes={@ORM\Index(name="mark_id", columns={"mark_id", "model"})})
+ * @ORM\Entity
+ */
+class OcAutoModel
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="mark_id", type="integer", nullable=true)
+     */
+    private $markId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="model", type="string", length=255, nullable=true)
+     */
+    private $model;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sort", type="integer", nullable=false)
+     */
+    private $sort = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="model_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $modelId;
+
+
+}
+

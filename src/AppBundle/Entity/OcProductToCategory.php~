@@ -1,0 +1,42 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * OcProductToCategory
+ *
+ * @ORM\Table(name="oc_product_to_category")
+ * @ORM\Entity
+ */
+class OcProductToCategory
+{
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="main_category", type="boolean", nullable=false)
+     */
+    private $mainCategory = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="product_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $productId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="category_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $categoryId;
+
+
+}
+

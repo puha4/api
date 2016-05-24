@@ -1,0 +1,89 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * OcReturnProduct
+ *
+ * @ORM\Table(name="oc_return_product")
+ * @ORM\Entity
+ */
+class OcReturnProduct
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="return_id", type="integer", nullable=false)
+     */
+    private $returnId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="product_id", type="integer", nullable=false)
+     */
+    private $productId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="model", type="string", length=64, nullable=false)
+     */
+    private $model;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="quantity", type="integer", nullable=false)
+     */
+    private $quantity;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="return_reason_id", type="integer", nullable=false)
+     */
+    private $returnReasonId;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="opened", type="boolean", nullable=false)
+     */
+    private $opened;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comment", type="text", length=65535, nullable=false)
+     */
+    private $comment;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="return_action_id", type="integer", nullable=false)
+     */
+    private $returnActionId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="return_product_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $returnProductId;
+
+
+}
+

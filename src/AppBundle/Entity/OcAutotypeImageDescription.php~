@@ -1,0 +1,54 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * OcAutotypeImageDescription
+ *
+ * @ORM\Table(name="oc_autotype_image_description")
+ * @ORM\Entity
+ */
+class OcAutotypeImageDescription
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="autotype_image_id", type="integer", nullable=false)
+     */
+    private $autotypeImageId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="language_id", type="integer", nullable=false)
+     */
+    private $languageId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="autotype_id", type="integer", nullable=false)
+     */
+    private $autotypeId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="description_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $descriptionId;
+
+
+}
+

@@ -1,0 +1,42 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * OcCategoryOptionDescription
+ *
+ * @ORM\Table(name="oc_category_option_description")
+ * @ORM\Entity
+ */
+class OcCategoryOptionDescription
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=127, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="option_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $optionId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="language_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $languageId;
+
+
+}
+

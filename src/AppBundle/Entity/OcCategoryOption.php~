@@ -1,0 +1,40 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * OcCategoryOption
+ *
+ * @ORM\Table(name="oc_category_option")
+ * @ORM\Entity
+ */
+class OcCategoryOption
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="status", type="integer", nullable=true)
+     */
+    private $status = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sort_order", type="integer", nullable=true)
+     */
+    private $sortOrder = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="option_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $optionId;
+
+
+}
+

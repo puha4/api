@@ -1,0 +1,40 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * OcUrlAlias
+ *
+ * @ORM\Table(name="oc_url_alias")
+ * @ORM\Entity
+ */
+class OcUrlAlias
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="query", type="string", length=255, nullable=false)
+     */
+    private $query;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="keyword", type="string", length=255, nullable=false)
+     */
+    private $keyword;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="url_alias_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $urlAliasId;
+
+
+}
+

@@ -1,0 +1,33 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * OcCategoryOptionValue
+ *
+ * @ORM\Table(name="oc_category_option_value")
+ * @ORM\Entity
+ */
+class OcCategoryOptionValue
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="option_id", type="integer", nullable=true)
+     */
+    private $optionId = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="value_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $valueId;
+
+
+}
+

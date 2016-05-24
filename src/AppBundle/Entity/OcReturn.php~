@@ -1,0 +1,103 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * OcReturn
+ *
+ * @ORM\Table(name="oc_return")
+ * @ORM\Entity
+ */
+class OcReturn
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="order_id", type="integer", nullable=false)
+     */
+    private $orderId;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_ordered", type="date", nullable=false)
+     */
+    private $dateOrdered;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="customer_id", type="integer", nullable=false)
+     */
+    private $customerId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="firstname", type="string", length=32, nullable=false)
+     */
+    private $firstname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lastname", type="string", length=32, nullable=false)
+     */
+    private $lastname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=96, nullable=false)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telephone", type="string", length=32, nullable=false)
+     */
+    private $telephone;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="return_status_id", type="integer", nullable=false)
+     */
+    private $returnStatusId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comment", type="text", length=65535, nullable=true)
+     */
+    private $comment;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_added", type="datetime", nullable=false)
+     */
+    private $dateAdded;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_modified", type="datetime", nullable=false)
+     */
+    private $dateModified;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="return_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $returnId;
+
+
+}
+

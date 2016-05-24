@@ -1,0 +1,502 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * OcProductAtr
+ *
+ * @ORM\Table(name="oc_product_atr")
+ * @ORM\Entity
+ */
+class OcProductAtr
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="product_id", type="integer", nullable=false)
+     */
+    private $productId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="abd", type="integer", nullable=false)
+     */
+    private $abd = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="abs", type="integer", nullable=false)
+     */
+    private $abs = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="esp", type="integer", nullable=false)
+     */
+    private $esp = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="gal_far", type="integer", nullable=false)
+     */
+    private $galFar = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="kpp", type="integer", nullable=false)
+     */
+    private $kpp = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="immob", type="integer", nullable=false)
+     */
+    private $immob = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="pod_bez", type="integer", nullable=false)
+     */
+    private $podBez = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="serv", type="integer", nullable=false)
+     */
+    private $serv = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sign", type="integer", nullable=false)
+     */
+    private $sign = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="cent_zam", type="integer", nullable=false)
+     */
+    private $centZam = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="cd", type="integer", nullable=false)
+     */
+    private $cd = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="dvd", type="integer", nullable=false)
+     */
+    private $dvd = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="mp3", type="integer", nullable=false)
+     */
+    private $mp3 = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="akust", type="integer", nullable=false)
+     */
+    private $akust = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="magnit", type="integer", nullable=false)
+     */
+    private $magnit = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sabuf", type="integer", nullable=false)
+     */
+    private $sabuf = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sys_nav", type="integer", nullable=false)
+     */
+    private $sysNav = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="gps", type="integer", nullable=false)
+     */
+    private $gps = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="bort_comp", type="integer", nullable=false)
+     */
+    private $bortComp = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="dat_svet", type="integer", nullable=false)
+     */
+    private $datSvet = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="klim_kon", type="integer", nullable=false)
+     */
+    private $klimKon = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="koj_sal", type="integer", nullable=false)
+     */
+    private $kojSal = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="kondic", type="integer", nullable=false)
+     */
+    private $kondic = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="kruz_kont", type="integer", nullable=false)
+     */
+    private $kruzKont = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="lyk", type="integer", nullable=false)
+     */
+    private $lyk = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="multir", type="integer", nullable=false)
+     */
+    private $multir = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="omiv_far", type="integer", nullable=false)
+     */
+    private $omivFar = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="parktr", type="integer", nullable=false)
+     */
+    private $parktr = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="pod_zer", type="integer", nullable=false)
+     */
+    private $podZer = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sens_dojd", type="integer", nullable=false)
+     */
+    private $sensDojd = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="us_rul", type="integer", nullable=false)
+     */
+    private $usRul = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="el_stekl", type="integer", nullable=false)
+     */
+    private $elStekl = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="el_pak", type="integer", nullable=false)
+     */
+    private $elPak = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="pod_sid", type="integer", nullable=false)
+     */
+    private $podSid = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="gbo", type="integer", nullable=false)
+     */
+    private $gbo = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="derev", type="integer", nullable=false)
+     */
+    private $derev = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="dl_baz", type="integer", nullable=false)
+     */
+    private $dlBaz = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="maxi", type="integer", nullable=false)
+     */
+    private $maxi = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="prav_rul", type="integer", nullable=false)
+     */
+    private $pravRul = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ton_stek", type="integer", nullable=false)
+     */
+    private $tonStek = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="tyn", type="integer", nullable=false)
+     */
+    private $tyn = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fark", type="integer", nullable=false)
+     */
+    private $fark = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="garaj_hr", type="integer", nullable=false)
+     */
+    private $garajHr = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ne_bit", type="integer", nullable=false)
+     */
+    private $neBit = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ne_krash", type="integer", nullable=false)
+     */
+    private $neKrash = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ruch_up", type="integer", nullable=false)
+     */
+    private $ruchUp = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="serv_kn", type="integer", nullable=false)
+     */
+    private $servKn = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="gor_tor", type="integer", nullable=false)
+     */
+    private $gorTor = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="asc", type="integer", nullable=false)
+     */
+    private $asc = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="vsc", type="integer", nullable=false)
+     */
+    private $vsc = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="lob_st", type="integer", nullable=false)
+     */
+    private $lobSt = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="eholot", type="integer", nullable=false)
+     */
+    private $eholot = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="yakor", type="integer", nullable=false)
+     */
+    private $yakor = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="spalnik", type="integer", nullable=false)
+     */
+    private $spalnik = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="autopech", type="integer", nullable=false)
+     */
+    private $autopech = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="spal_mest", type="integer", nullable=false)
+     */
+    private $spalMest = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="toilet", type="integer", nullable=false)
+     */
+    private $toilet = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="holodil", type="integer", nullable=false)
+     */
+    private $holodil = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="kayut", type="integer", nullable=false)
+     */
+    private $kayut = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="toilet_b", type="integer", nullable=false)
+     */
+    private $toiletB = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="kuhn", type="integer", nullable=false)
+     */
+    private $kuhn = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="bok_vig", type="integer", nullable=false)
+     */
+    private $bokVig = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="zad_vig", type="integer", nullable=false)
+     */
+    private $zadVig = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="treh_vig", type="integer", nullable=false)
+     */
+    private $trehVig = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="tent", type="integer", nullable=false)
+     */
+    private $tent = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="trap", type="integer", nullable=false)
+     */
+    private $trap = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="treyl", type="integer", nullable=false)
+     */
+    private $treyl = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="product_atr_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $productAtrId;
+
+
+}
+

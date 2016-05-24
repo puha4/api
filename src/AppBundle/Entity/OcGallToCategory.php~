@@ -1,0 +1,35 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * OcGallToCategory
+ *
+ * @ORM\Table(name="oc_gall_to_category")
+ * @ORM\Entity
+ */
+class OcGallToCategory
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="gal_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $galId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="category_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $categoryId;
+
+
+}
+

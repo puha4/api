@@ -1,0 +1,47 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * OcProductTag
+ *
+ * @ORM\Table(name="oc_product_tag", indexes={@ORM\Index(name="product_id", columns={"product_id"}), @ORM\Index(name="language_id", columns={"language_id"}), @ORM\Index(name="tag", columns={"tag"})})
+ * @ORM\Entity
+ */
+class OcProductTag
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="product_id", type="integer", nullable=false)
+     */
+    private $productId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="language_id", type="integer", nullable=false)
+     */
+    private $languageId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tag", type="string", length=32, nullable=false)
+     */
+    private $tag;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="product_tag_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $productTagId;
+
+
+}
+

@@ -1,0 +1,44 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * OcProductToValue
+ *
+ * @ORM\Table(name="oc_product_to_value")
+ * @ORM\Entity
+ */
+class OcProductToValue
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="product_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $productId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="value_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $valueId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="option_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $optionId;
+
+
+}
+
