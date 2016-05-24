@@ -31,6 +31,7 @@ class AuthCode extends BaseAuthCode
 
     /**
      * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="customer_id")
      */
     protected $user;
 }
