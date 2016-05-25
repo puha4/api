@@ -11,12 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="oc_customer")
  * @ORM\Entity
  * @ORM\AttributeOverrides({
- *     @ORM\AttributeOverride(name="id",
- *          column=@ORM\Column(
- *              name     = "customer_id",
- *              type     = "integer"
- *          )
- *      )
+ *     @ORM\AttributeOverride(name="usernameCanonical", column=@ORM\Column(unique = false)),
+ *     @ORM\AttributeOverride(name="emailCanonical", column=@ORM\Column(unique = false))
  * })
  */
 class User extends BaseUser
@@ -24,7 +20,7 @@ class User extends BaseUser
     /**
      * @var integer
      *
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name = "customer_id", type="integer")
      * @ORM\Id()
      * @ORM\GeneratedValue(strategy="AUTO")
      */

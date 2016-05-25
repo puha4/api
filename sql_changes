@@ -1,13 +1,3 @@
--- добавляет AUTO_INCREMENT PRIMARY KEY поле для таблицы
-ALTER TABLE  `oc_autotype_image_description` ADD  `description_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY AFTER  `autotype_image_id` ;
-
-ALTER TABLE  `oc_product_view` ADD PRIMARY KEY (  `product_id` ) ;
-
-UPDATE `oc_customer` SET `id` = `customer_id` WHERE 1;
-
-ALTER TABLE  `oc_customer` CHANGE  `customer_id`  `customer_id` INT( 11 ) NOT NULL ;
-
-ALTER TABLE  `oc_customer` DROP PRIMARY KEY ,
-ADD PRIMARY KEY (  `id` ) ;
-
-ALTER TABLE  `oc_customer` CHANGE  `id`  `id` INT( 11 ) NOT NULL AUTO_INCREMENT ;
+ALTER TABLE  `oc_customer` ENGINE = INNODB;
+UPDATE  `oc_customer` SET  `email_canonical` =  `email`
+UPDATE `oc_customer` SET `roles`="a:0:{}" WHERE roles = ""

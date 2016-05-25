@@ -21,7 +21,7 @@ class UsersController extends FOSRestController implements ClassResourceInterfac
         }
 
         $em = $this->getDoctrine()->getEntityManager();
-        $repository = $em->getRepository("AppBundle:User");
+        $repository = $em->getRepository("UserBundle:User");
         $users = $repository->findAll();
 
         $view = $this->view($users, 200)
@@ -33,6 +33,13 @@ class UsersController extends FOSRestController implements ClassResourceInterfac
         return $this->handleView($view);
     }
 
+    // пример
+    // http://127.0.0.1:8000/oauth/v2/token
+    // ?client_id=1_2s50wmns07qcg8g48cg4scco88skgsskoww4cg4o44g084ksk0
+    // &client_secret=62qkmmyhg3k0gssk0w00kkccgwoo0kwkk440g0kw48o4ooc00g
+    // &grant_type=password
+    // &username=autogalaktika.office@gmail.com
+    // &password=12345
     public function postAction(Request $request){
 
         $userManager = $this->get('fos_user.user_manager');
@@ -62,8 +69,15 @@ class UsersController extends FOSRestController implements ClassResourceInterfac
             throw $this->createAccessDeniedException();
         }
 
-        $data = array("hello" => "world");
-        $view = $this->view($data);
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository("UserBundle:User");
+        $users = $repository->findAll();
+
+        $view = $this->view($users, 200)
+            ->setTemplate("default/users.html.twig")
+            ->setTemplateVar('users')
+        ;
+
 
         return $this->handleView($view);
     }

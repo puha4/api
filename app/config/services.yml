@@ -12,3 +12,6 @@ services:
         class: UserBundle\Listener\ClassMetadataListener
         tags:
             -  { name: doctrine.event_listener, event: loadClassMetadata }
+
+    my_password_encoder:
+        class: UserBundle\Security\PasswordEncoder
