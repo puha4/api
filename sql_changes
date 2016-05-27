@@ -1,3 +1,5 @@
 ALTER TABLE  `oc_customer` ENGINE = INNODB;
 UPDATE  `oc_customer` SET  `email_canonical` =  `email`
+UPDATE `oc_customer` SET `username` = `email`
+UPDATE `oc_customer` SET `username_canonical` = `email`
 UPDATE `oc_customer` SET `roles`="a:0:{}" WHERE roles = ""
