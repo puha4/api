@@ -154,177 +154,177 @@ class ProductController extends FOSRestController implements ClassResourceInterf
         $productAttr = new ProductAttr();
 
         $abd = $request->request->get('abd');
-        if (isset($abd)) {
+        if ($abd) {
             $productAttr->setAbd(1);
         }
 
         $abs = $request->request->get('abs');
-        if (isset($abs)) {
+        if ($abs) {
             $productAttr->setAbs(1);
         }
 
         $esp = $request->request->get('esp');
-        if (isset($esp)) {
+        if ($esp) {
             $productAttr->setEsp(1);
         }
 
         $gal_far = $request->request->get('gal_far');
-        if (isset($gal_far)) {
+        if ($gal_far) {
             $productAttr->setGalFar(1);
         }
 
         $kpp = $request->request->get('kpp');
-        if (isset($kpp)) {
+        if ($kpp) {
             $productAttr->setKpp(1);
         }
 
         $immob = $request->request->get('immob');
-        if (isset($immob)) {
+        if ($immob) {
             $productAttr->setImmob(1);
         }
 
         $pod_bez = $request->request->get('pod_bez');
-        if (isset($pod_bez)) {
+        if ($pod_bez) {
             $productAttr->setPodBez(1);
         }
 
         $serv = $request->request->get('serv');
-        if (isset($serv)) {
+        if ($serv) {
             $productAttr->setServ(1);
         }
 
         $sign = $request->request->get('sign');
-        if (isset($sign)) {
+        if ($sign) {
             $productAttr->setSign(1);
         }
 
         $cent_zam = $request->request->get('cent_zam');
-        if (isset($cent_zam)) {
+        if ($cent_zam) {
             $productAttr->setCentZam(1);
         }
 
         $cd = $request->request->get('cd');
-        if (isset($cd)) {
+        if ($cd) {
             $productAttr->setCd(1);
         }
 
         $dvd = $request->request->get('dvd');
-        if (isset($dvd)) {
+        if ($dvd) {
             $productAttr->setDvd(1);
         }
 
         $mp3 = $request->request->get('mp3');
-        if (isset($mp3)) {
+        if ($mp3) {
             $productAttr->setMp3(1);
         }
 
         $akust = $request->request->get('akust');
-        if (isset($akust)) {
+        if ($akust) {
             $productAttr->setAkust(1);
         }
 
         $magnit = $request->request->get('magnit');
-        if (isset($magnit)) {
+        if ($magnit) {
             $productAttr->setMagnit(1);
         }
 
         $sabuf = $request->request->get('sabuf');
-        if (isset($sabuf)) {
+        if ($sabuf) {
             $productAttr->setSabuf(1);
         }
 
         $sys_nav = $request->request->get('sys_nav');
-        if (isset($sys_nav)) {
+        if ($sys_nav) {
             $productAttr->setSysNav(1);
         }
 
         $gps = $request->request->get('gps');
-        if (isset($gps)) {
+        if ($gps) {
             $productAttr->setGps(1);
         }
 
         $gbo = $request->request->get('gbo');
-        if (isset($gbo)) {
+        if ($gbo) {
             $productAttr->setGbo(1);
         }
 
         $derev = $request->request->get('derev');
-        if (isset($derev)) {
+        if ($derev) {
             $productAttr->setDerev(1);
         }
 
         $dl_baz = $request->request->get('dl_baz');
-        if (isset($dl_baz)) {
+        if ($dl_baz) {
             $productAttr->setDlBaz(1);
         }
 
         $maxi = $request->request->get('maxi');
-        if (isset($maxi)) {
+        if ($maxi) {
             $productAttr->setMaxi(1);
         }
 
         $prav_rul = $request->request->get('prav_rul');
-        if (isset($prav_rul)) {
+        if ($prav_rul) {
             $productAttr->setPravRul(1);
         }
 
         $ton_stek = $request->request->get('ton_stek');
-        if (isset($ton_stek)) {
+        if ($ton_stek) {
             $productAttr->setTonStek(1);
         }
 
         $tyn = $request->request->get('tyn');
-        if (isset($tyn)) {
+        if ($tyn) {
             $productAttr->setTyn(1);
         }
 
         $fark = $request->request->get('fark');
-        if (isset($fark)) {
+        if ($fark) {
             $productAttr->setFark(1);
         }
 
         $garaj_hr = $request->request->get('garaj_hr');
-        if (isset($garaj_hr)) {
+        if ($garaj_hr) {
             $productAttr->setGarajHr(1);
         }
 
         $ne_bit = $request->request->get('ne_bit');
-        if (isset($ne_bit)) {
+        if ($ne_bit) {
             $productAttr->setNeBit(1);
         }
 
         $ne_krash = $request->request->get('ne_krash');
-        if (isset($ne_krash)) {
+        if ($ne_krash) {
             $productAttr->setNeKrash(1);
         }
 
         $ruch_up = $request->request->get('ruch_up');
-        if (isset($ruch_up)) {
+        if ($ruch_up) {
             $productAttr->setRuchUp(1);
         }
 
         $serv_kn = $request->request->get('serv_kn');
-        if (isset($serv_kn)) {
+        if ($serv_kn) {
             $productAttr->setServKn(1);
         }
 
         $bort_comp = $request->request->get('bort_comp');
-        if (isset($bort_comp)) {
+        if ($bort_comp) {
             $productAttr->setBortComp(1);
         }
 
         $dat_svet = $request->request->get('dat_svet');
-        if (isset($dat_svet)) {
+        if ($dat_svet) {
             $productAttr->setDatSvet(1);
         }
 
         $klim_kon = $request->request->get('klim_kon');
-        if (isset($klim_kon)) {
+        if ($klim_kon) {
             $productAttr->setKlimKon(1);
         }
 
         $koj_sal = $request->request->get('koj_sal');
-        if (isset($koj_sal)) {
+        if ($koj_sal) {
             $productAttr->setKojSal(1);
         }
 
@@ -347,146 +347,146 @@ class ProductController extends FOSRestController implements ClassResourceInterf
         if ($multir) {
             $productAttr->setMultir(1);
         }
-//
-//        $omiv_far = $request->request->get('omiv_far');
-//        if (isset($data['omiv_far'])) {
-//            $sql .= "omiv_far = '1', ";
-//        }
-//
-//        $parktr = $request->request->get('parktr');
-//        if (isset($data['parktr'])) {
-//            $sql .= "parktr = '1', ";
-//        }
-//
-//        $pod_zer = $request->request->get('pod_zer');
-//        if (isset($data['pod_zer'])) {
-//            $sql .= "pod_zer = '1', ";
-//        }
-//
-//        $pod_sid = $request->request->get('pod_sid');
-//        if (isset($data['pod_sid'])) {
-//            $sql .= "pod_sid = '1', ";
-//        }
-//
-//        $sens_dojd = $request->request->get('sens_dojd');
-//        if (isset($data['sens_dojd'])) {
-//            $sql .= "sens_dojd = '1', ";
-//        }
-//
-//        $us_rul = $request->request->get('us_rul');
-//        if (isset($data['us_rul'])) {
-//            $sql .= "us_rul = '1', ";
-//        }
-//
-//        $el_stekl = $request->request->get('el_stekl');
-//        if (isset($data['el_stekl'])) {
-//            $sql .= "el_stekl = '1', ";
-//        }
-//
-//        $el_pak = $request->request->get('el_pak');
-//        if (isset($data['el_pak'])) {
-//            $sql .= "el_pak = '1', ";
-//        }
-//
-//        $gor_tor = $request->request->get('gor_tor');
-//        if (isset($data['gor_tor'])) {
-//            $sql .= "gor_tor = '1', ";
-//        }
-//
-//        $asc = $request->request->get('asc');
-//        if (isset($data['asc'])) {
-//            $sql .= "asc = '1', ";
-//        }
-//
-//        $vsc = $request->request->get('vsc');
-//        if (isset($data['vsc'])) {
-//            $sql .= "vsc = '1', ";
-//        }
-//
-//        $lob_st = $request->request->get('lob_st');
-//        if (isset($data['lob_st'])) {
-//            $sql .= "lob_st = '1', ";
-//        }
-//
-//        $eholot = $request->request->get('eholot');
-//        if (isset($data['eholot'])) {
-//            $sql .= "eholot = '1', ";
-//        }
-//
-//        $yakor = $request->request->get('yakor');
-//        if (isset($data['yakor'])) {
-//            $sql .= "yakor = '1', ";
-//        }
-//
-//        $spalnik = $request->request->get('spalnik');
-//        if (isset($data['spalnik'])) {
-//            $sql .= "spalnik = '1', ";
-//        }
-//
-//        $autopech = $request->request->get('autopech');
-//        if (isset($data['autopech'])) {
-//            $sql .= "autopech = '1', ";
-//        }
-//
-//        $spal_mest = $request->request->get('spal_mest');
-//        if (isset($data['spal_mest'])) {
-//            $sql .= "spal_mest = '1', ";
-//        }
-//
-//        $toilet = $request->request->get('toilet');
-//        if (isset($data['toilet'])) {
-//            $sql .= "toilet = '1', ";
-//        }
-//
-//        $holodil = $request->request->get('holodil');
-//        if (isset($data['holodil'])) {
-//            $sql .= "holodil = '1', ";
-//        }
-//
-//        $kayut = $request->request->get('kayut');
-//        if (isset($data['kayut'])) {
-//            $sql .= "kayut = '1', ";
-//        }
-//
-//        $toilet_b = $request->request->get('toilet_b');
-//        if (isset($data['toilet_b'])) {
-//            $sql .= "toilet_b = '1', ";
-//        }
-//
-//        $kuhn = $request->request->get('kuhn');
-//        if (isset($data['kuhn'])) {
-//            $sql .= "kuhn = '1', ";
-//        }
-//
-//        $bok_vig = $request->request->get('bok_vig');
-//        if (isset($data['bok_vig'])) {
-//            $sql .= "bok_vig = '1', ";
-//        }
-//
-//        $zad_vig = $request->request->get('zad_vig');
-//        if (isset($data['zad_vig'])) {
-//            $sql .= "zad_vig = '1', ";
-//        }
-//
-//        $treh_vig = $request->request->get('treh_vig');
-//        if (isset($data['treh_vig'])) {
-//            $sql .= "treh_vig = '1', ";
-//        }
-//
-//        $tent = $request->request->get('tent');
-//        if (isset($data['tent'])) {
-//            $sql .= "tent = '1', ";
-//        }
-//
-//        $trap = $request->request->get('trap');
-//        if (isset($data['trap'])) {
-//            $sql .= "trap = '1', ";
-//        }
-//
-//        $treyl = $request->request->get('treyl');
-//        if (isset($data['treyl'])) {
-//            $sql .= "treyl = '1', ";
-//        }
+
+        $omiv_far = $request->request->get('omiv_far');
+        if ($omiv_far) {
+            $productAttr->setOmivFar(1);
+        }
+
+        $parktr = $request->request->get('parktr');
+        if ($parktr) {
+            $productAttr->setParktr(1);
+        }
+
+        $pod_zer = $request->request->get('pod_zer');
+        if ($pod_zer) {
+            $productAttr->setPodZer(1);
+        }
+
+        $pod_sid = $request->request->get('pod_sid');
+        if ($pod_sid) {
+            $productAttr->setPodSid(1);
+        }
+
+        $sens_dojd = $request->request->get('sens_dojd');
+        if ($sens_dojd) {
+            $productAttr->setSensDojd(1);
+        }
+
+        $us_rul = $request->request->get('us_rul');
+        if ($us_rul) {
+            $productAttr->setUsRul(1);
+        }
+
+        $el_stekl = $request->request->get('el_stekl');
+        if ($el_stekl) {
+            $productAttr->setElStekl(1);
+        }
+
+        $el_pak = $request->request->get('el_pak');
+        if ($el_pak) {
+            $productAttr->setElPak(1);
+        }
+
+        $gor_tor = $request->request->get('gor_tor');
+        if ($gor_tor) {
+            $productAttr->setGorTor(1);
+        }
+
+        $asc = $request->request->get('asc');
+        if ($asc) {
+            $productAttr->setAsc(1);
+        }
+
+        $vsc = $request->request->get('vsc');
+        if ($vsc) {
+            $productAttr->setVsc(1);
+        }
+
+        $lob_st = $request->request->get('lob_st');
+        if ($lob_st) {
+            $productAttr->setLobSt(1);
+        }
+
+        $eholot = $request->request->get('eholot');
+        if ($eholot) {
+            $productAttr->setEholot(1);
+        }
+
+        $yakor = $request->request->get('yakor');
+        if ($yakor) {
+            $productAttr->setYakor(1);
+        }
+
+        $spalnik = $request->request->get('spalnik');
+        if ($spalnik) {
+            $productAttr->setSpalnik(1);
+        }
+
+        $autopech = $request->request->get('autopech');
+        if ($autopech) {
+            $productAttr->setAutopech(1);
+        }
+
+        $spal_mest = $request->request->get('spal_mest');
+        if ($spal_mest) {
+            $productAttr->setSpalMest(1);
+        }
+
+        $toilet = $request->request->get('toilet');
+        if ($toilet) {
+            $productAttr->setToilet(1);
+        }
+
+        $holodil = $request->request->get('holodil');
+        if ($holodil) {
+            $productAttr->setHolodil(1);
+        }
+
+        $kayut = $request->request->get('kayut');
+        if ($kayut) {
+            $productAttr->setKayut(1);
+        }
+
+        $toilet_b = $request->request->get('toilet_b');
+        if ($toilet_b) {
+            $productAttr->setToiletB(1);
+        }
+
+        $kuhn = $request->request->get('kuhn');
+        if ($kuhn) {
+            $productAttr->setKuhn(1);
+        }
+
+        $bok_vig = $request->request->get('bok_vig');
+        if ($bok_vig) {
+            $productAttr->setBokVig(1);
+        }
+
+        $zad_vig = $request->request->get('zad_vig');
+        if ($zad_vig) {
+            $productAttr->setZadVig(1);
+        }
+
+        $treh_vig = $request->request->get('treh_vig');
+        if ($treh_vig) {
+            $productAttr->setTrehVig(1);
+        }
+
+        $tent = $request->request->get('tent');
+        if ($tent) {
+            $productAttr->setTent(1);
+        }
+
+        $trap = $request->request->get('trap');
+        if ($trap) {
+            $productAttr->setTrap(1);
+        }
+
+        $treyl = $request->request->get('treyl');
+        if ($treyl) {
+            $productAttr->setTreyl(1);
+        }
 
         $productAttr->setProductId($productId);
         $em->persist($productAttr);
