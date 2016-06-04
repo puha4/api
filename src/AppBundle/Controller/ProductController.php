@@ -2,10 +2,10 @@
 
 namespace AppBundle\Controller;
 
-
 use AppBundle\Entity\Product;
 use AppBundle\Entity\ProductAttr;
 use AppBundle\Entity\ProductVideo;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Routing\ClassResourceInterface;
@@ -25,14 +25,139 @@ class ProductController extends FOSRestController implements ClassResourceInterf
      */
     public function addAction(Request $request)
     {
-//        var_dump($request->getContent());
-//        var_dump($request->request->get('korobka'));
-//        die("stop");
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            throw $this->createAccessDeniedException();
+        }
+
+        $em = $this->getDoctrine()->getManager();
+
+        $product = new Product();
+        $product = $this->setProductValues($request, $product);
+
+        $em->persist($product);
+        $em->flush();
+
+        $this->saveYoutubeVideos($request, $product, $em);
+        $this->saveProductImages($request, $product);
+        $this->insertProdutAttributes($request, $product->getProductId());
+
+        $view = $this->view(['add' => 'success'], 200);
+        
+        return $this->handleView($view);
+    }
+
+    /**
+     * @Post("/update/{plusProductId}", name="product_update")
+     */
+    public function updateAction(Request $request, $plusProductId)
+    {
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            throw $this->createAccessDeniedException();
+        }
+
+        $em = $this->getDoctrine()->getManager();
+
+        $product = $em->getRepository("AppBundle:Product")->findOneBy(['plusProductId' => $plusProductId]);
+
+        if (!$product) {
+            throw $this->createNotFoundException('No product found for id '. $plusProductId);
+        }
+
+        $product = $this->setProductValues($request, $product);
+
+        $em->persist($product);
+        $em->flush();
+
+        $this->deleteYoutubeVideos($product,$em);
+        $this->removeProductImageDir($product->getProductId());
+        $this->removeProductAttributes($product->getProductId());
+        
+        $this->saveYoutubeVideos($request, $product, $em);
+        $this->saveProductImages($request, $product);
+        $this->insertProdutAttributes($request, $product->getProductId());
+
+        $view = $this->view(['update' => 'success'], 200);
+
+        return $this->handleView($view);
+    }
+
+    /**
+     * @Post("/delete/{plusProductId}", name="product_delete")
+     */
+    public function deleteAction($plusProductId)
+    {
         $em = $this->getDoctrine()->getManager();
         
-        $imgPath = "/var/www/autogalaktika.ua/image/customer/";
-        $obmen = $request->request->get('obmen');
+        $product = $em->getRepository("AppBundle:Product")->findOneBy(['plusProductId' => $plusProductId]);
 
+        if (!$product) {
+            throw $this->createNotFoundException('No product found for id '. $plusProductId);
+        }
+
+        $productId = $product->getProductId();
+
+        $productAttr = $em->getRepository("AppBundle:ProductAttr")->findOneBy(['productId' => $productId]);
+
+        $em->remove($productAttr);
+        $em->remove($product);
+        $em->flush();
+
+        $this->removeProductImageDir($productId);
+
+        $view = $this->view(['delete' => 'success'], 200);
+
+        return $this->handleView($view);
+    }
+
+    /**
+     * @Post("/hide/{plusProductId}", name="product_hide")
+     */
+    public function hideAction($plusProductId)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $product = $em->getRepository("AppBundle:Product")->findOneBy(['plusProductId' => $plusProductId]);
+
+        if (!$product) {
+            throw $this->createNotFoundException('No product found for id '. $plusProductId);
+        }
+
+        $product->setStatus(0);
+
+        $em->persist($product);
+        $em->flush();
+        
+        $view = $this->view(['hide' => 'success'], 200);
+
+        return $this->handleView($view);
+    }
+
+    /**
+     * @Post("/show/{plusProductId}", name="product_hide")
+     */
+    public function showAction($plusProductId)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $product = $em->getRepository("AppBundle:Product")->findOneBy(['plusProductId' => $plusProductId]);
+
+        if (!$product) {
+            throw $this->createNotFoundException('No product found for id '. $plusProductId);
+        }
+
+        $product->setStatus(1);
+
+        $em->persist($product);
+        $em->flush();
+
+        $view = $this->view(['hide' => 'success'], 200);
+
+        return $this->handleView($view);
+    }
+
+    private function setProductValues(Request $request, Product $product)
+    {
+        $obmen = $request->request->get('obmen');
         if ($obmen) {
             $obmen = 1;
         } else {
@@ -52,23 +177,20 @@ class ProductController extends FOSRestController implements ClassResourceInterf
         } else {
             $torg = 0;
         }
-        
-        $product = new Product();
+
         $product->setCustomerId(1535);
         $product->setAutotypeId($request->request->get('autotype_id'));
         $product->setAutotypeImageId($request->request->get('autotype_image_id'));
         $product->setNew($request->request->get('new'));
         $product->setCountryId($request->request->get('country_id'));
-        $product->setMarkId($request->request->get('mark_id'));
-        $product->setModelId($request->request->get('model_id'));
         $product->setModel("");
         $product->setGod($request->request->get('god'));
         $product->setObmen((int)$obmen);
         $product->setNocomment((int)$nocomment);
         $product->setTorg((int)$torg);
-        $product->setKorobka("Автомат");
-        $product->setTopl("Бензин");
-        $product->setPrivod("Полный");
+        $product->setKorobka($request->request->get('korobka'));
+        $product->setTopl($request->request->get('topl'));
+        $product->setPrivod($request->request->get('privod'));
         $product->setBazKompl($request->request->get('baz_kompl'));
         $product->setCvet($request->request->get('cvet'));
         $product->setImage($request->request->get('main_im'));
@@ -88,6 +210,7 @@ class ProductController extends FOSRestController implements ClassResourceInterf
         $product->setConfis($request->request->get('confis'));
         $product->setNeHod($request->request->get('ne_hod'));
         $product->setStatus(1);
+        $product->setPlusProductId($request->request->get('auto_id'));
 
         $cvet_met = $request->request->get('cvet_met');
         if ($cvet_met) {
@@ -95,60 +218,25 @@ class ProductController extends FOSRestController implements ClassResourceInterf
         } else {
             $product->setCvetMet(0);
         }
-//
-//        $videos = $request->request->get('youtube');
 
-//        if ($videos) {
-//            $product->setVideo(1);
-//            foreach ($videos as $youtube) {
-//                if ($youtube['code'] && $youtube['title']) {
-//                    $this->db->query("INSERT INTO " . DB_PREFIX . "product_video SET
-//						product_id = '" . (int)$auto_id . "',
-//						`code` = '" . $this->db->escape($youtube['id']) . "',
-//						`title` = '" . $this->db->escape($youtube['title']) . "'
-//					");
-//                }
-//            }
-//        }
-//        $productVideo = new ProductVideo();
-//        $productVideo->setProductId(76);
-//        $productVideo->setCode("code");
-//        $productVideo->setTitle("Название");
-//        $em->persist($productVideo);
-//
-//        $em->flush();
-//var_dump($productVideo);
-//        die();
-
-
-        $images = $request->request->get('images');
-
-        $fs = new Filesystem();
-
-        $em->persist($product);
-
-        $em->flush();
-        try {
-            $fs->mkdir($imgPath . $product->getProductId());
-        } catch (IOExceptionInterface $e) {
-            echo "An error occurred while creating your directory at ".$e->getPath();
-        }
-        
-        foreach ($images as $image) {
-            $parsedArray = parse_url($image);
-            $explodedPath = explode("/", $parsedArray['path']);
-            $imageName = end($explodedPath);
-
-            $fs->copy($image, $imgPath . $product->getProductId() . "/" . $imageName);
+        $mark_id = $request->request->get('mark_id');
+        if ($mark_id) {
+            $product->setMarkId($mark_id);
         }
 
-        $this->insertProdutAttributes($request, $product->getProductId());
+        $model_id = $request->request->get('model_id');
+        if ($model_id) {
+            $product->setModelId($model_id);
+        }
 
-        $view = $this->view(['test' => 'success'], 200);
-        return $this->handleView($view);
+        return $product;
     }
 
-    private function insertProdutAttributes($request, $productId)
+    /**
+     * @param $request
+     * @param $productId
+     */
+    private function insertProdutAttributes(Request $request, $productId)
     {
         $em = $this->getDoctrine()->getManager();
         $productAttr = new ProductAttr();
@@ -490,6 +578,95 @@ class ProductController extends FOSRestController implements ClassResourceInterf
 
         $productAttr->setProductId($productId);
         $em->persist($productAttr);
+        $em->flush();
+    }
+    
+    private function removeProductAttributes($productId)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $productAttr = $em->getRepository("AppBundle:ProductAttr")->findOneBy(['productId' => $productId]);
+        
+        if ($productAttr) {
+            $em->remove($productAttr);
+            $em->flush();
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @param $product
+     */
+    private function saveProductImages(Request $request, $product)
+    {
+        $imgPath = $this->container->getParameter('app.product.img_path');
+        $fs = new Filesystem();
+
+        try {
+            $fs->mkdir($imgPath . $product->getProductId());
+        } catch (IOExceptionInterface $e) {
+            echo "An error occurred while creating your directory at " . $e->getPath();
+        }
+
+        $images = $request->request->get('images');
+
+        foreach ($images as $image) {
+            $parsedArray = parse_url($image);
+            $explodedPath = explode("/", $parsedArray['path']);
+            $imageName = end($explodedPath);
+
+            $fs->copy($image, $imgPath . $product->getProductId() . "/" . $imageName);
+        }
+    }
+
+    private function removeProductImageDir($productId)
+    {
+        $fs = new Filesystem();
+
+        $imgPath = $this->container->getParameter('app.product.img_path');
+
+        try {
+            $fs->remove($imgPath . $productId);
+        } catch (IOExceptionInterface $e) {
+            echo "An error occurred while creating your directory at " . $e->getPath();
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @param $product
+     * @param $em
+     */
+    private function saveYoutubeVideos(Request $request, $product, EntityManager $em)
+    {
+        $videos = $request->request->get('youtube');
+        
+        foreach ($videos as $youtube) {
+            if ($youtube['code'] && $youtube['title']) {
+                $productVideo = new ProductVideo();
+                $productVideo->setTitle($youtube['title']);
+                $productVideo->setCode($youtube['code']);
+                $productVideo->setProduct($product);
+                $em->persist($productVideo);
+            }
+        }
+        $em->flush();
+    }
+
+    /**
+     * @param $product
+     * @param $em
+     */
+    private function deleteYoutubeVideos($product, EntityManager $em)
+    {
+        $productVideos = $em->getRepository("AppBundle:ProductVideo")->findBy(['product' => $product]);
+        
+        if (!empty($productVideos)) {
+            foreach ($productVideos as $productVideo) {
+                $em->remove($productVideo);
+            }
+        }
+        
         $em->flush();
     }
 }

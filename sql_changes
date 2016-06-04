@@ -1,7 +1,8 @@
 ALTER TABLE  `oc_customer` ENGINE = INNODB;
-UPDATE  `oc_customer` SET  `email_canonical` =  `email`
-UPDATE `oc_customer` SET `username` = `email`
-UPDATE `oc_customer` SET `username_canonical` = `email`
-UPDATE `oc_customer` SET `roles`="a:0:{}" WHERE roles = ""
+UPDATE  `oc_customer` SET  `email_canonical` =  `email`;
+UPDATE `oc_customer` SET `username` = `email`;
+UPDATE `oc_customer` SET `username_canonical` = `email`;
+UPDATE `oc_customer` SET `roles`="a:0:{}" WHERE roles = "";
 ALTER TABLE `oc_product` CHANGE `date_modified` `date_modified` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP;
 ALTER TABLE  `oc_product` ENGINE = INNODB;
+TRUNCATE TABLE `oc_product_video`;

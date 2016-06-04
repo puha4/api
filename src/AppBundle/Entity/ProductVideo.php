@@ -12,9 +12,17 @@ class ProductVideo
     /**
      * @var integer
      *
-     * @ORM\Column(name="product_id", type="integer", nullable=false)
+     * @ORM\Column(name="video_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $productId;
+    private $videoId;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Product", inversedBy="videos")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="product_id")
+     */
+    protected $product;
     /**
      * @var string
      *
@@ -27,24 +35,16 @@ class ProductVideo
      * @ORM\Column(name="title", type="string", length=255, nullable=false)
      */
     private $title;
+
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="video_id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $videoId;
-    /**
-     * Set productId
-     *
-     * @param integer $productId
+     * Set product
+     * @param Product $product
      *
      * @return OcProductVideo
      */
-    public function setProductId($productId)
+    public function setProduct(Product $product)
     {
-        $this->productId = $productId;
+        $this->product = $product;
         return $this;
     }
     /**
@@ -52,9 +52,9 @@ class ProductVideo
      *
      * @return integer
      */
-    public function getProductId()
+    public function getProduct()
     {
-        return $this->productId;
+        return $this->product;
     }
     /**
      * Set code

@@ -1,5 +1,6 @@
 <?php
 namespace AppBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 /**
  * OcProduct
@@ -397,10 +398,24 @@ class Product
     private $productId;
 
     /**
+     * @ORM\OneToMany(targetEntity="ProductVideo", mappedBy="product", cascade={"remove"}, fetch="EXTRA_LAZY")
+     */
+    private $videos;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="plus_product_id", type="integer", nullable = true, options={"default": 0})
+     */
+    private $plusProductId;
+
+    /**
      * Product constructor.
      */
     public function __construct()
     {
+        $this->videos = new ArrayCollection();
+
         $this->dateAdded = new \DateTime();
         $this->dateModified = new \DateTime();
         $this->dateAvailable = new \DateTime();
@@ -1739,4 +1754,40 @@ class Product
     {
         return $this->productId;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getVideos()
+    {
+        return $this->videos;
+    }
+
+    /**
+     * @param mixed $videos
+     * @return $this
+     */
+    public function addVideos($videos)
+    {
+        $this->videos[] = $videos;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPlusProductId()
+    {
+        return $this->plusProductId;
+    }
+
+    /**
+     * @param int $plusProductId
+     */
+    public function setPlusProductId($plusProductId)
+    {
+        $this->plusProductId = $plusProductId;
+    }
+
 }
