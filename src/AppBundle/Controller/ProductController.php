@@ -133,7 +133,7 @@ class ProductController extends FOSRestController implements ClassResourceInterf
     }
 
     /**
-     * @Post("/show/{plusProductId}", name="product_hide")
+     * @Post("/show/{plusProductId}", name="product_show")
      */
     public function showAction($plusProductId)
     {
@@ -150,7 +150,7 @@ class ProductController extends FOSRestController implements ClassResourceInterf
         $em->persist($product);
         $em->flush();
 
-        $view = $this->view(['hide' => 'success'], 200);
+        $view = $this->view(['show' => 'success'], 200);
 
         return $this->handleView($view);
     }
