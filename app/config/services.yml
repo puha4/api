@@ -7,11 +7,5 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
-
-    user.metadata_listener:
-        class: UserBundle\Listener\ClassMetadataListener
-        tags:
-            -  { name: doctrine.event_listener, event: loadClassMetadata }
-
     my_password_encoder:
         class: UserBundle\Security\PasswordEncoder

@@ -96,4 +96,12 @@ class UsersController extends FOSRestController implements ClassResourceInterfac
         return $this->handleView($view);
     }
 
+    public function getRouteTestAction()
+    {
+        $view = $this->view(['success' => true], 200)
+        ;
+
+        return $this->handleView($view);
+    }
+
 }

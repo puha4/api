@@ -1,2 +1,2 @@
 parameters:
-    app.product.img_path: /var/www/autogalaktika.ua/image/customer/
+    app.product.img_path: "%img_path%"
